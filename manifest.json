@@ -1,0 +1,45 @@
+{
+    "manifest_version": 2,
+    "name": "Mcbbs Plus",
+    "version": "1.0.0",
+    "description": "Minecraft 我的世界中文论坛扩展程序",
+    "icons": {
+        "16": "images/logo-16.png",
+        "48": "images/logo-48.png",
+        "128": "images/logo-128.png"
+    },
+    "background": {
+        "page": "background.html"
+    },
+    "browser_action": {
+        "default_icon": "/images/logo-48.png",
+        "default_title": "Mcbbs Plus",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://www.mcbbs.net/*", "*://mcbbs.net/*"],
+            "js": ["js/content-script.js"],
+            "css": ["css/mcbbsplus.css"],
+            "run_at": "document_start"
+        }
+    ],
+    "permissions": [
+        "tabs",
+        "webRequest",
+        "storage",
+        "http://www.mcbbs.net/*",
+        "http://mcbbs.net/*",
+        "https://www.mcbbs.net/*",
+        "https://mcbbs.net/*",
+		"https://cdn.zerodream.net/*"
+    ],
+	"content_security_policy": "script-src 'self' 'unsafe-eval' https://cdn.zerodream.net/; object-src 'self'",
+    "web_accessible_resources": ["js/inject.js"],
+    "homepage_url": "https://www.zerodream.net/",
+    "options_page": "options.html",
+    "options_ui": {
+        "page": "options.html",
+        "chrome_style": true
+    }
+}
