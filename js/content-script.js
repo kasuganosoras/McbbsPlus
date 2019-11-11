@@ -23,9 +23,15 @@ window.onload = function() {
 	injectJs();
 	var fastpostbar = document.querySelector("#f_pst .pnpost");
 	var editorboxbar = document.querySelector("#editorbox .pnpost");
-	if(fastpostbar != null || editorboxbar != null) {
+	var postboxbar = document.querySelector("#postbox .pnpost");
+	if(fastpostbar != null || editorboxbar != null || postboxbar != null) {
 		if(fastpostbar != null) {
 			fastpostbar.innerHTML += `
+				<span class='y' style='margin-right:8px;'><a href='javascript:;' id='moreEmoji'>更多表情</a></span>
+				<div id='imagesDiv'></div>
+			`;
+		} else if(postboxbar != null) {
+			postboxbar.innerHTML += `
 				<span class='y' style='margin-right:8px;'><a href='javascript:;' id='moreEmoji'>更多表情</a></span>
 				<div id='imagesDiv'></div>
 			`;
